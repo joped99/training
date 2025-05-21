@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 
 #SBATCH --time=0:05:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
@@ -18,3 +18,11 @@ for iter in {0..6}; do
     mv "data/output.dat" "data/output${iter}.dat" # renaming output
 done
 
+#activating conda
+[[ -f ~/.bashrc ]] && source ~/.bashrc
+
+#activating standard environment
+conda activate pystd
+
+# running python file
+python plt/dataAnalysis.py
