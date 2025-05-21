@@ -19,7 +19,7 @@ void run(double* &t, double* &x);
 void saveFile(double t[MAX], double x[MAX], string fileName);
 
 int main(){
-    string inputFile = "../data/params.dat";
+    string inputFile = "data/params.dat";
     readFile(inputFile);
 
     // calculating number of steps in 9 seconds
@@ -34,7 +34,7 @@ int main(){
 
     run(t,x);
 
-    string outputFile = "../data/output.dat";
+    string outputFile = "data/output.dat";
     saveFile(t,x,outputFile);
 
     return 0;
@@ -84,5 +84,6 @@ void saveFile(double t[MAX], double x[MAX], string fileName){
         fout << t[i] << " " << x[i] << endl;
     }
 
+    fout.close();
     return;
 }
